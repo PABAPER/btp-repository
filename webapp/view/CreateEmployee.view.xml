@@ -1,0 +1,40 @@
+<mvc:View controllerName="employeemb.controller.CreateEmployee"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="createPage" title="Create Employee">
+    <content>
+        <VBox class="sapUiSmallMargin">
+            <Label text="Employee ID"/>
+            <Input id="empId" placeholder="Enter Employee ID"/>
+
+            <Label text="Employee Age"/>
+            <Input id="empAge" placeholder="Enter Employee Age"/>
+
+            <Label text="Employee Company"/>
+            <Input id="empComp" placeholder="Enter Employee Company"/>
+
+            <Label text="Employee First Name"/>
+            <Input id="empFName" placeholder="Enter Employee First Name"/>
+
+            <Label text="Employee Last Name"/>
+            <Input id="empLName" placeholder="Enter Employee Last Name"/>
+
+            <Label text="Employee Joining Date"/>
+            <DatePicker id="joiningDate" placeholder="Select Joining Date"/>
+
+            <Label text="Employee Number"/>
+            <Input id="empNum" placeholder="Enter Employee Number"/>            
+        </VBox>
+    </content>
+
+    <!-- Footer with "Save" and "Cancel" Buttons -->
+    <footer>
+        <Toolbar>
+            <ToolbarSpacer/>
+            <Button text="Save" press="onSavePress" type="Emphasized"/>
+            <Button text="Cancel" press="onCancelPress"/>
+        </Toolbar>
+    </footer>
+    </Page>
+</mvc:View>

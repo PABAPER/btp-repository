@@ -1,0 +1,50 @@
+<mvc:View controllerName="employeemb.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:smartFilter="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:filterBar="sap.ui.comp.filterbar">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox>            
+            <smartFilter:SmartFilterBar id="customFilterBar"
+                                 entitySet="ZMB_EMP_ODATA"
+                                 persistencyKey="SmartFilterBar"
+                                 enableBasicSearch="true"                                 
+                                 basicSearchFieldName="empid"
+                                 useDateRangeType="true"
+                                 liveMode="false">                
+            </smartFilter:SmartFilterBar>
+
+            <!-- Smart Table for OData Binding -->
+            <smartTable:SmartTable 
+                id="smartTable"
+                entitySet="ZMB_EMP_ODATA"
+                smartFilterId="customFilterBar"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                showRowCount="true"
+                header="Employee Data"
+                enableAutoColumnWidth="true"
+                tableType="Table"
+                height="600px">    
+            <smartTable:customToolbar>
+			<OverflowToolbar design="Transparent">
+				<ToolbarSpacer/>
+				<OverflowToolbarButton id="deleteButton" icon="sap-icon://decline" tooltip="Delete Employee" press="onDelete" enabled="false"/>
+				<OverflowToolbarButton id="updateButton" icon="sap-icon://feed" tooltip="Update" press="onUpdate" enabled="false"/>
+			</OverflowToolbar>
+		</smartTable:customToolbar>          
+            </smartTable:SmartTable>
+        </VBox>
+        </content>
+
+        <footer>
+        <Toolbar>
+            <ToolbarSpacer/>  <!-- Pushes button to the right -->
+            <Button text="Create" press="onCreatePress" type="Emphasized"/>
+        </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

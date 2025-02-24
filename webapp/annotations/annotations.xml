@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="UI5.LocalAnnotations">
+            
+            <!-- Annotation for EmployeeSet -->
+            <Annotations Target="MyService.EmployeeSet">
+
+                <!-- Defining Column Names in SmartTable -->
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <!-- Override Column Label for EmpId -->
+                        <Record>
+                            <PropertyValue Property="Value" Path="EmpId"/>
+                            <PropertyValue Property="Label" String="Employee ID"/>
+                        </Record>
+
+                        <!-- Override Column Label for EmpName -->
+                        <Record>
+                            <PropertyValue Property="Value" Path="EmpName"/>
+                            <PropertyValue Property="Label" String="Employee Name"/>
+                        </Record>
+
+                        <!-- Override Column Label for EmpAge -->
+                        <Record>
+                            <PropertyValue Property="Value" Path="EmpAge"/>
+                            <PropertyValue Property="Label" String="Employee Age"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+            </Annotations>
+
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

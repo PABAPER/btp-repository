@@ -1,0 +1,140 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "employeemb",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.3",
+            "toolsId": "07da5814-af25-48e2-9a65-9c560865f480"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZMB_EMP_SB/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZMB_EMP_SB_VAN"
+                    ],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZMB_EMP_SB_VAN": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZMB_EMP_SB_VAN',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/ZMB_EMP_SB_VAN.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.127.7",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "employeemb.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "annotations": ["localAnnotations"]
+                }
+            },
+            "localAnnotations": {
+                "type": "ODataAnnotations",
+                "uri": "annotations/annotations.xml"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "employeemb.view",
+                "async": true,
+                "viewPath": "employeemb.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteView1",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetView1"
+                    ]
+                },
+                {
+                    "pattern": "CreateEmployee",
+                    "name": "CreateEmployee",
+                    "target": "CreateEmployee"
+                }
+            ],
+            "targets": {
+                "TargetView1": {
+                    "id": "View1",
+                    "name": "View1"
+                },
+                "CreateEmployee": {
+                    "viewName": "CreateEmployee",
+                    "viewLevel": 2
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "employeemb.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "service": "employeeService"
+    }
+}

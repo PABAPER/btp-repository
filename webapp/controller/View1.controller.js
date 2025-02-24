@@ -137,6 +137,18 @@ sap.ui.define([
                     }
                 }
             });
+        },
+        onUpdate : function () {
+            var oModel = this.getOwnerComponent().getModel();
+            var oTable = this.getView().byId("smartTable").getTable();
+            var aSelectedItems = [];
+            aSelectedItems = oTable.getSelectedIndices();
+
+            var oSmartTable = this.getView().byId("smartTable");
+            oSmartTable.setEditable(true); // Make the table editable
+
+            // var sPath = oTable.getContextByIndex(aSelectedItems[0]).getPath();
+            // oRouter.navTo("UpdateEmployee", { path: encodeURIComponent(sPath) });
         }
     });
 });

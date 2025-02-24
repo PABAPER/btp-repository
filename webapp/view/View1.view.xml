@@ -28,7 +28,8 @@
                 header="Employee Data"
                 enableAutoColumnWidth="true"
                 tableType="Table"
-                height="600px">    
+                height="600px"
+                editTogglable="true">    
             <smartTable:customToolbar>
 			<OverflowToolbar design="Transparent">
 				<ToolbarSpacer/>
